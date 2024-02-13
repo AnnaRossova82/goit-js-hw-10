@@ -6,6 +6,7 @@ import "izitoast/dist/css/iziToast.min.css";
 let userSelectedDate;
 let countdownInterval;
 
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -13,13 +14,14 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
-
+   
     const currentTime = new Date();
 
     if (userSelectedDate <= currentTime) {
       iziToast.error({
         title: "Error",
         message: "Please choose a date in the future",
+        position: "centerLeft",
       });
       toggleButtonState(false);
     } else {
@@ -28,8 +30,8 @@ const options = {
   },
 };
 
-flatpickr("#datetime-picker", options);
 
+flatpickr("#datetime-picker", options);
 
 document.querySelector("[data-start]").addEventListener("click", startCountdown);
 
@@ -61,18 +63,24 @@ function startCountdown() {
     countdownTimer.querySelector("[data-seconds]").textContent = addLeadingZero(seconds);
   }, 1000);
 
-  toggleButtonState(false);
+  startButton.disabled = true;
+  startButton.removeEventListener("click", startCountdown);
 }
 
-function toggleButtonState(enabled) {
-  const button = document.querySelector("[data-start]");
-  button.disabled = !enabled;
+const datetimePicker = document.getElementById("datetime-picker");
+const startButton = document.querySelector("[data-start]");
 
-  const datetimePicker = document.querySelector("#datetime-picker");
-  datetimePicker.disabled = !enabled;
 
-  
-}
+startButton.disabled = true;
+datetimePicker.addEventListener("input", function() {
+    if (datetimePicker.value.trim() !== "") {
+        startButton.disabled = false;
+    } else {
+        startButton.disabled = true;
+    }
+});
+
+
 
 function convertMs(ms) {
 
