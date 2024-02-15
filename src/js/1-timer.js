@@ -104,3 +104,5 @@ function convertMs(ms) {
 function addLeadingZero(value) {
   return value.toString().padStart(2, "0");
 }
+
+const test = true;
