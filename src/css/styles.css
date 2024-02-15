@@ -1,10 +1,10 @@
 /* Reset styles */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('path/to/montserrat-regular.woff2') format('woff2'),
-       url('path/to/montserrat-regular.woff') format('woff');
-}
 
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 h1,
 h2,

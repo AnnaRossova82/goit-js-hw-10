@@ -23,9 +23,9 @@ const options = {
         message: "Please choose a date in the future",
         position: "centerLeft",
       });
-      toggleButtonState(false);
+      startButton.disabled = true;
     } else {
-      toggleButtonState(true);
+      startButton.disabled = false;
     }
   },
 };
@@ -51,7 +51,7 @@ function startCountdown() {
     if (remainingTime <= 0) {
       clearInterval(countdownInterval);
       countdownTimer.textContent = "00:00:00:00";
-      toggleButtonState(true);
+      startButton.disabled = false;
       return;
     }
 
@@ -72,13 +72,15 @@ const startButton = document.querySelector("[data-start]");
 
 
 startButton.disabled = true;
-datetimePicker.addEventListener("input", function() {
+if (datetimePicker) {
+  datetimePicker.addEventListener("input", function() {
     if (datetimePicker.value.trim() !== "") {
-        startButton.disabled = false;
+      startButton.disabled = false;
     } else {
-        startButton.disabled = true;
+      startButton.disabled = true;
     }
-});
+  });
+}
 
 
 
@@ -105,4 +107,3 @@ function addLeadingZero(value) {
   return value.toString().padStart(2, "0");
 }
 
-const test = true;
