@@ -14,7 +14,7 @@ const options = {
   minuteIncrement: 1,
   enableMinutes: true, // Дозволяє вибирати хвилини
   enableHours: true,   // Дозволяє вибирати години
-  dateFormat: "Y-m-d H:i", 
+
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
    
