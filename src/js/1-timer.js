@@ -13,9 +13,7 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  enableMinutes: true, 
-  enableHours: true,   
-
+ 
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
    
