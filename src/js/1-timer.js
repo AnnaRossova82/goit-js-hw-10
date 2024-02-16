@@ -21,14 +21,15 @@ const options = {
       iziToast.error({
         title: "Error",
         message: "Please choose a date in the future",
-        position: "centerLeft",
       });
-      startButton.disabled = true;
+      toggleButtonState(false);
     } else {
       startButton.disabled = false;
+      startCountdown();
     }
   },
 };
+
 
 
 flatpickr("#datetime-picker", options);
