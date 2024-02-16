@@ -70,8 +70,8 @@ function startCountdown() {
 const datetimePicker = document.getElementById("datetime-picker");
 const startButton = document.querySelector("[data-start]");
 
-
 startButton.disabled = true;
+
 if (datetimePicker) {
   datetimePicker.addEventListener("input", function() {
     if (datetimePicker.value.trim() !== "") {

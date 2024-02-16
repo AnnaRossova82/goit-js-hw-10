@@ -1,7 +1,12 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-document.querySelector('.form').addEventListener('submit', (e) => {
+  const form = document.querySelector('.form');
+
+
+if (form) {
+  // Якщо елемент існує, додаємо подію
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
   
     const delay = parseInt(document.querySelector('input[name="delay"]').value);
@@ -35,3 +40,4 @@ document.querySelector('.form').addEventListener('submit', (e) => {
         });
       });
   });
+}
