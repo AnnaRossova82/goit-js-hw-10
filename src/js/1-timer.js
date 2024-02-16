@@ -9,11 +9,12 @@ let countdownInterval;
 
 const options = {
   enableTime: true,
+  dateFormat: "Y-m-d H:i",
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  enableMinutes: true, // Дозволяє вибирати хвилини
-  enableHours: true,   // Дозволяє вибирати години
+  enableMinutes: true, 
+  enableHours: true,   
 
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
