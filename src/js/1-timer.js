@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function toggleButtonState(disabled) {
     startButton.disabled = disabled;
+
+    // Додано код, щоб робити інпут неактивним, якщо таймер запущено
+    datetimePicker.disabled = disabled;
   }
 
   const datetimePicker = document.getElementById("datetime-picker");
