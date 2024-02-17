@@ -30,9 +30,6 @@ const options = {
   },
 };
   
-
-
-
 flatpickr("#datetime-picker", options);
 
 document.querySelector("[data-start]").addEventListener("click", startCountdown);
@@ -84,8 +81,6 @@ if (datetimePicker) {
   });
 }
 
-
-
 function convertMs(ms) {
 
   const second = 1000;
@@ -95,11 +90,8 @@ function convertMs(ms) {
 
 
   const days = Math.floor(ms / day);
- 
   const hours = Math.floor((ms % day) / hour);
- 
   const minutes = Math.floor(((ms % day) % hour) / minute);
-
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
