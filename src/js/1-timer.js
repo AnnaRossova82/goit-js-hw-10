@@ -3,10 +3,16 @@ import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
   let userSelectedDate;
   let countdownInterval;
+
+  function toggleButtonState(disabled) {
+    startButton.disabled = disabled;
+  }
 
   const datetimePicker = document.getElementById("datetime-picker");
 
@@ -28,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         startButton.disabled = false;
         startCountdown();
+        datetimePicker.disabled = true;
       }
     },
   };
@@ -49,11 +56,13 @@ document.addEventListener("DOMContentLoaded", function() {
       const currentTime = new Date().getTime();
       const remainingTime = countdownDate - currentTime;
 
+   
+
       if (remainingTime <= 0) {
         clearInterval(countdownInterval);
         countdownTimer.textContent = "00:00:00:00";
-        startButton.disabled = false;
-        return;
+        startButton.disabled = false;      
+          return;
       }
 
       const { days, hours, minutes, seconds } = convertMs(remainingTime);
