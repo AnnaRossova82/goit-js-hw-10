@@ -9,15 +9,13 @@ let countdownInterval;
 
 const options = {
   enableTime: true,
-  dateFormat: "Y-m-d H:i",
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
  
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
-   
-    const currentTime = new Date();
+     const currentTime = new Date();
 
     if (userSelectedDate <= currentTime) {
       iziToast.error({
@@ -31,6 +29,7 @@ const options = {
     }
   },
 };
+  
 
 
 
